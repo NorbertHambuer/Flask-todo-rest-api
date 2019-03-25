@@ -6,7 +6,64 @@
 </head>
 <body>
 <div id="main-content">
-    This is a rest api created with Flask!
+    <span style="display: block"> This is a rest api created with Flask!</span></br>
+    <span style="display: block"> Api methods</span></br>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>Method</td>
+            <td>URL</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>GET</td>
+            <td>https://flask-todo-rest-api.herokuapp.com/tasks</td>
+            <td>Retrieve list of tasks</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>https://flask-todo-rest-api.herokuapp.com/tasks?id={task_id}</td>
+            <td>Retrieve a task</td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>https://flask-todo-rest-api.herokuapp.com/tasks</td>
+            <td>Create a new task</td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>https://flask-todo-rest-api.herokuapp.com/tasks?id={task_id}</td>
+            <td>Update an existing task</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>https://flask-todo-rest-api.herokuapp.com/tasks?id={task_id}</td>
+            <td>Delete a task</td>
+        </tr>
+        </tbody>
+    </table>
+    </br>
+    <div id="others">
+        <div id="post_req">
+            <span style="display: block">POST fields:</span>
+            <ul>
+                <li>description(string)</li>
+                <li>deadline(date)</li>
+                <li>dompleted(boolean) - optional</li>
+            </ul>
+        </div>
+        <div id="post_req">
+            <span style="display: block">PUT fields:</span>
+            <ul>
+                <li>id(integer)</li>
+                <li>description(string) - optional</li>
+                <li>deadline(date) - optional</li>
+                <li>dompleted(boolean) - optional</li>
+            </ul>
+        </div>
+    </div>
 </div>
 </body>
 </html>

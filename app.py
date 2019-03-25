@@ -83,7 +83,7 @@ def add_task():
             task = TaskModel(
                 request.values['description'],
                 request.values['deadline'],
-                request.values['completed'] if 'completed' in request.values else False
+                bool(request.values['completed']) if 'completed' in request.values else False
             )
             task.save()
             return "Task saved!"
@@ -116,7 +116,7 @@ def update_task():
             task = TaskModel.get_one_task(request.values['id'])
             task.update(request.values['description'] if 'description' in request.values else '',
                         request.values['deadline'] if 'deadline' in request.values else '',
-                        request.values['completed'] if 'completed' in request.values else '')
+                        bool(request.values['completed']) if 'completed' in request.values else '')
             return "Task updated!"
         except Exception as ex:
             return str(ex)
