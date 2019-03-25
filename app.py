@@ -135,7 +135,7 @@ def delete_task():
             task.delete()
             return "Task deleted!"
         except Exception as ex:
-            return str(ex)
+            return "Task not found!"
     else:
         return "Task id is required!"
 
