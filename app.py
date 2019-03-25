@@ -78,7 +78,8 @@ class TaskModel(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return "Works"
+    # return render_template('home.html')
 
 
 @app.route("/tasks", methods=['POST'])
