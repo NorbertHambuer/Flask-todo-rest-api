@@ -71,6 +71,9 @@ class TaskModel(db.Model):
         return obj
 
 
+def str2bool(v):
+    return v.lower() in ('yes', 'true', 't', '1')
+
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -83,7 +86,7 @@ def add_task():
             task = TaskModel(
                 request.values['description'],
                 request.values['deadline'],
-                bool(request.values['completed']) if 'completed' in request.values else False
+                str2bool(request.values['completed']) if 'completed' in request.values else False
             )
             task.save()
             return "Task saved!"
@@ -100,7 +103,7 @@ def get_task():
             task = TaskModel.get_one_task(request.values['id'])
             return jsonify(task.to_json())
         except Exception as ex:
-            return str(ex)
+            return "Task not found!"
     else:
         try:
             tasks = TaskModel.get_all_tasks()
@@ -116,7 +119,7 @@ def update_task():
             task = TaskModel.get_one_task(request.values['id'])
             task.update(request.values['description'] if 'description' in request.values else '',
                         request.values['deadline'] if 'deadline' in request.values else '',
-                        bool(request.values['completed']) if 'completed' in request.values else '')
+                        str2bool(request.values['completed']) if 'completed' in request.values else '')
             return "Task updated!"
         except Exception as ex:
             return str(ex)
