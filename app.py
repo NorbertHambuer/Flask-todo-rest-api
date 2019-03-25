@@ -14,8 +14,10 @@ POSTGRES = {
     'host': 'localhost',
     'port': '5432',
 }
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://postgres:ad@localhost:5432/flask_crud'
+app.config[
+    'SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://postgres://awfqrturjopvwu:57fa9b17120d24837f892ce4acd9cf14488413775f3398bec672aad53e72da3a@ec2-54-247-85-251.eu-west-1.compute.amazonaws.com:5432/d7r0lg7eu7gvb4'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://postgres:ad@localhost:5432/flask_crud'
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
