@@ -3,9 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from datetime import date
+from flask_cors import CORS
 from json import dumps
 
 app = Flask(__name__)
+cors = CORS(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS '] = False
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://postgres:ad@localhost:5432/flask_crud'
 app.config[
