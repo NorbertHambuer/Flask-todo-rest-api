@@ -34,13 +34,11 @@ class TaskModel(db.Model):
     def to_json(self):  # New special method.
         """ Convert to JSON format string representation. """
         return {
+            'id': self.id,
             'description': self.description,
             'deadline': self.deadline,
             'completed': self.completed
         }
-
-    def __repr__(self):
-        return "asdasd"
 
     def save(self):
         db.session.add(self)
